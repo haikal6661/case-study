@@ -109,6 +109,26 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee = Employee::find($id);
+        $employee->delete();
+
+        return redirect('employee');
+    }
+
+    public function archive()
+    {
+        $employee = Employee::onlyTrashed()->get();
+
+        return view('employee.archive')->with(compact('employee'));
+        // ->with(compact('roles'));
+    }
+
+    public function forceDestroy($id)
+    {
+        $employee = Employee::onlyTrashed()->find($id);
+        // dd($employee);
+        $employee->forceDelete();
+
+        return redirect('archive');
     }
 }

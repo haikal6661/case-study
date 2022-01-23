@@ -69,4 +69,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('add_employee','App\Http\Controllers\EmployeeController@store');
     Route::get('edit_employee/{id}','App\Http\Controllers\EmployeeController@edit');
     Route::post('/update_employee/{id}','App\Http\Controllers\EmployeeController@update');
+    Route::get('delete/{id}','App\Http\Controllers\EmployeeController@destroy');
+    Route::get('archive','App\Http\Controllers\EmployeeController@archive')->name('archive-employee');
+    Route::get('force-delete/{id}','App\Http\Controllers\EmployeeController@forceDestroy');
 });
