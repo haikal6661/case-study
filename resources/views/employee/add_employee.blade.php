@@ -36,6 +36,14 @@
                     <label for="alamat">Address:</label>
                     <input type="text" class="form-control" name="address" placeholder="" required>
                   </div>
+                  <div class="form-group">
+                    <label for="kod_kawasan">Role:</label>
+                    <select class="form-control selectpicker" data-style="btn btn-link" title="Select Role..." name="role" required>
+                        @foreach ($roles as $role)
+                        <option value="{{$role->id}}">{{$role->name}}</option>
+                        @endforeach
+                      </select>
+                  </div>
                   <div class="text-center">
                     <button class="btn btn-success" type="submit">Add Employee</button>
                     <a href="{{ route('employee') }}" class="btn btn-danger" type="button">Back</a>

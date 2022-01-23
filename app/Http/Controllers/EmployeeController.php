@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use Spatie\Permission\Models\Role;
 
 class EmployeeController extends Controller
 {
@@ -15,8 +16,11 @@ class EmployeeController extends Controller
     public function index()
     {
         $employee = Employee::all();
+        // $roles = Role::all();
         // dd($data);
-        return view('employee.employee', compact('employee'));
+        // dd($employee);
+        return view('employee.employee')->with(compact('employee'));
+        // ->with(compact('roles'));
     }
 
     /**
@@ -26,7 +30,9 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employee.add_employee');
+        $roles = Role::all();
+
+        return view('employee.add_employee', ['roles'=>$roles]);
     }
 
     /**
@@ -41,6 +47,9 @@ class EmployeeController extends Controller
 
         $employee->name = $request->name;
         $employee->address = $request->address;
+        $employee->roles_id = $request->role;
+
+        // dd($employee);
 
         $employee->save();
 
@@ -67,8 +76,9 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         $employee = Employee::find($id);
+        $roles = Role::all();
         // dd($data);
-        return view('employee.edit_employee',['employee'=>$employee]);
+        return view('employee.edit_employee',['employee'=>$employee],['roles'=>$roles]);
     }
 
     /**
@@ -84,6 +94,7 @@ class EmployeeController extends Controller
 
         $employee->name = $request->name;
         $employee->address = $request->address;
+        $employee->roles_id = $request->role;
 
         $employee->save();
 
