@@ -63,3 +63,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('employee','App\Http\Controllers\EmployeeController@index')->name('employee');
+    Route::get('add_employee','App\Http\Controllers\EmployeeController@create');
+    Route::post('add_employee','App\Http\Controllers\EmployeeController@store');
+});
