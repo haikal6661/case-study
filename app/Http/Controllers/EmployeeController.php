@@ -66,7 +66,9 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $employee = Employee::find($id);
+        // dd($data);
+        return view('employee.edit_employee',['employee'=>$employee]);
     }
 
     /**
@@ -78,7 +80,14 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $employee = Employee::find($request->id);
+
+        $employee->name = $request->name;
+        $employee->address = $request->address;
+
+        $employee->save();
+
+        return redirect('employee')->with('status', 'Employee has been updated.');
     }
 
     /**

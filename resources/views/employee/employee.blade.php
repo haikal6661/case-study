@@ -28,7 +28,7 @@
                     <td>{{$employees->name}}</td>
                     <td></td>
                     <td>{{$employees->address}}</td>
-                    <td style="text-align: center;width:20%;"><a href="" class="btn btn-success btn-sm" role="button" title="Edit"><img src="{{asset('storage/pencil-fill.svg')}}" alt="Edit"></a>
+                    <td style="text-align: center;width:20%;"><a href="{{url('edit_employee/'.$employees['id'])}}" class="btn btn-success btn-sm" role="button" title="Edit"><img src="{{asset('storage/pencil-fill.svg')}}" alt="Edit"></a>
                       {{-- <a href="{{url('view_ahli/'.$user['id'])}}" class="btn btn-info btn-sm" role="button" title="View"><img src="{{asset('storage/eye-fill.svg')}}" alt="View"></a> --}}
                       <a href="" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-danger btn-sm" role="button" title="Delete"><img src="{{asset('storage/trash-fill.svg')}}" alt="Delete"></a></td>
                   </tr>

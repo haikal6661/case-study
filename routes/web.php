@@ -67,4 +67,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('employee','App\Http\Controllers\EmployeeController@index')->name('employee');
     Route::get('add_employee','App\Http\Controllers\EmployeeController@create');
     Route::post('add_employee','App\Http\Controllers\EmployeeController@store');
+    Route::get('edit_employee/{id}','App\Http\Controllers\EmployeeController@edit');
+    Route::post('/update_employee/{id}','App\Http\Controllers\EmployeeController@update');
 });
