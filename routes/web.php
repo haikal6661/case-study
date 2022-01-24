@@ -43,6 +43,7 @@ Route::group(['middleware' => 'auth','verified'], function () {
 });
 
 Route::group(['middleware' => 'auth','verified'], function () {
+	Route::get('add_employee','App\Http\Controllers\EmployeeController@create');
 	Route::get('employee','App\Http\Controllers\EmployeeController@index')->name('employee');
     Route::get('add_employee','App\Http\Controllers\EmployeeController@create');
     Route::post('add_employee','App\Http\Controllers\EmployeeController@store');

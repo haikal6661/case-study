@@ -6,7 +6,7 @@
   -->
   <div class="logo">
     <a href="https://creative-tim.com/" class="simple-text logo-normal">
-      {{ __('Creative Tim') }}
+      {{ __('Employee Management') }}
     </a>
   </div>
   <div class="sidebar-wrapper">
@@ -32,12 +32,6 @@
                 <span class="sidebar-normal">{{ __('User profile') }} </span>
               </a>
             </li>
-            <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('user.index') }}">
-                <span class="sidebar-mini"> UM </span>
-                <span class="sidebar-normal"> {{ __('User Management') }} </span>
-              </a>
-            </li>
           </ul>
         </div>
       </li>
@@ -58,7 +52,7 @@
             </li>
             <li class="nav-item{{ $activePage == 'archive-employee' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('archive-employee') }}">
-                <span class="sidebar-mini"> UM </span>
+                <span class="sidebar-mini"> AE </span>
                 <span class="sidebar-normal"> {{ __('Archive Employee') }} </span>
               </a>
             </li>

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Employee;
 
 class HomeController extends Controller
 {
@@ -21,6 +22,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $employee = Employee::all();
+        // $roles = Role::all();
+        // dd($data);
+        // dd($employee);
+        return view('dashboard')->with(compact('employee'));
     }
 }
