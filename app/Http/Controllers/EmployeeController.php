@@ -131,4 +131,22 @@ class EmployeeController extends Controller
 
         return redirect('archive');
     }
+
+    public function restore($id)
+    {
+        $employee = Employee::onlyTrashed()->find($id);
+
+        $employee->restore();
+
+        return redirect('archive');
+    }
+
+    public function restoreAll()
+    {
+        $employee = Employee::onlyTrashed();
+
+        $employee->restore();
+
+        return redirect('archive');
+    }
 }

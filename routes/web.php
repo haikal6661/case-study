@@ -72,4 +72,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('delete/{id}','App\Http\Controllers\EmployeeController@destroy');
     Route::get('archive','App\Http\Controllers\EmployeeController@archive')->name('archive-employee');
     Route::get('force-delete/{id}','App\Http\Controllers\EmployeeController@forceDestroy');
+	Route::get('restore/{id}','App\Http\Controllers\EmployeeController@restore');
+	Route::get('restore-all','App\Http\Controllers\EmployeeController@restoreAll');
 });
